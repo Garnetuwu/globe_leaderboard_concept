@@ -13,7 +13,7 @@ import Leaderboard from './pages/Leaderboard.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>root</div>
+    element: <Navigate to='/leaderboard' />
   },
   {
     path: '/leaderboard',
