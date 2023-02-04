@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: 'Open Sans', sans-serif;
+
+    color-scheme: light dark;
+    color: #ffff;
+    background-color: #03060D;
+    box-sizing: border-box;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@layer components {
+  .subText {
+    @apply text-[12px] text-[#93A2AE] leading-[18px]
+  }
+
+  .personalNav {
+    @apply px-[15px] py-[3px] border-r-[1px] border-break
+  }
+}
