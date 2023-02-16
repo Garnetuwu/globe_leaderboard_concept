@@ -1,6 +1,6 @@
-import FilterButton from "../../../UI/FilterButton"
+import BoardFilterItem from "./BoardFilterItem"
 
-const BoardFilter = () => {
+const BoardFilter = (props) => {
     const titleList = [
         'Ranking',
         'Win Rate',
@@ -8,14 +8,23 @@ const BoardFilter = () => {
         'Volume Traded',
         'Trader Rating',
         'Name'
-    ].map((title, index) => (
-        <li key={index} className='py-[10px]'>
-            <FilterButton dropdown={title !== 'Name'}>{title}</FilterButton>
-        </li>
-    ))
-    return <ul className="grid grid-cols-6 justify-between my-[10px] whitespace-nowrap">
+    ].map((title, index) => {
+        if (title !== 'Name') {
+            return <BoardFilterItem
+                title={title}
+                key={index}
+                onClick={props.onSort}
+                filter={props.filter} />
+        } else {
+            return <div>
+                <span>{title}</span>
+            </div>
+        }
+    })
+
+    return <div className="grid grid-cols-6 justify-between my-[10px] whitespace-nowrap">
         {titleList}
-    </ul>
+    </div>
 }
 
 export default BoardFilter
