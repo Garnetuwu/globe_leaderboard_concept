@@ -1,29 +1,50 @@
 import BoardFilterItem from "./BoardFilterItem"
 
+const titleList = [
+    {
+        title: 'Rank',
+        short: 'Rank'
+    },
+    {
+        title: 'Win Rate',
+        short: 'WR'
+    },
+    {
+        title: 'Profit and Loss',
+        short: 'P/L'
+    },
+    {
+        title: 'Volume Traded',
+        short: 'V/T'
+    },
+    {
+        title: 'Trader Rating',
+        short: 'Rating'
+    },
+    {
+        title: 'Name',
+        short: 'Name'
+    }
+]
+
 const BoardFilter = (props) => {
-    const titleList = [
-        'Ranking',
-        'Win Rate',
-        'Profit and Loss',
-        'Volume Traded',
-        'Trader Rating',
-        'Name'
-    ].map((title, index) => {
-        if (title !== 'Name') {
+    const titleListContent = titleList.map((el) => {
+        if (el.title !== 'Name') {
             return <BoardFilterItem
-                title={title}
-                key={index}
+                title={el.title}
+                short={el.short}
+                key={el.title}
                 onClick={props.onSort}
                 filter={props.filter} />
         } else {
             return <div>
-                <span>{title}</span>
+                <span>{el.title}</span>
             </div>
         }
     })
 
-    return <div className="grid grid-cols-6 justify-between my-[10px] whitespace-nowrap">
-        {titleList}
+    return <div className="grid grid-cols-6 place-items-center my-[10px] whitespace-nowrap">
+        {titleListContent}
     </div>
 }
 

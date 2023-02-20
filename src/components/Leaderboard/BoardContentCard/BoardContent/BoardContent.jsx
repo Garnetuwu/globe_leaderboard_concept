@@ -19,7 +19,7 @@ const BoardContent = () => {
         console.log(filter)
     }
 
-    return <div className='mx-[56px]'>
+    return <div className='mx-0'>
         <BoardFilter onSort={sortChangeHandler} filter={filter} />
         <BoardList location={curLocation} filter={filter} />
         <BoardPages />

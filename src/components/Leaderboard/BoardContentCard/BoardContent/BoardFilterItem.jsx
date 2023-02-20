@@ -6,7 +6,8 @@ const BoardFilterItem = (props) => {
     }
     return (
         <FilterButton onClick={buttonClickHandler} highlited={props.filter === props.title}>
-            {props.title}
+            <span className="hidden xl:block"> {props.title} </span>
+            <span className="block xl:hidden"> {props.short} </span>
         </FilterButton>
     )
 }
