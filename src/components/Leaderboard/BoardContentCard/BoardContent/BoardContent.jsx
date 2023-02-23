@@ -1,27 +1,21 @@
 import BoardFilter from './BoardFilter'
 import BoardList from './BoardList'
 import BoardPages from './BoardPages'
-import { useState, useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
+import LeaderboardContext from '../../../../store/leaderboard-context'
 
 const BoardContent = () => {
-    const location = useLocation()
-    const pathname = location.pathname
-    const [curLocation, setCurLocation] = useState('')
-    const [filter, setFilter] = useState('Ranking')
+    const { onChangePath } = useContext(LeaderboardContext)
+    const { pathname } = useLocation()
 
     useEffect(() => {
-        setCurLocation(pathname)
-    }, [pathname, curLocation])
-
-    const sortChangeHandler = (filter) => {
-        setFilter(filter)
-        console.log(filter)
-    }
+        onChangePath(pathname)
+    }, [pathname, onChangePath])
 
     return <div className='mx-0'>
-        <BoardFilter onSort={sortChangeHandler} filter={filter} />
-        <BoardList location={curLocation} filter={filter} />
+        <BoardFilter />
+        <BoardList />
         <BoardPages />
     </div>
 }
