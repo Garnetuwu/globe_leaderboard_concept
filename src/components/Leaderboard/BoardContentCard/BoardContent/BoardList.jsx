@@ -1,13 +1,14 @@
 import BoardListItem from "./BoardListItem"
 import { useContext } from "react"
 import LeaderboardContext from "../../../../store/leaderboard-context"
+import sortPlayers from "../../../../utils/sortPlayers"
 
 const BoardList = () => {
-    const { playersData, isLoading } = useContext(LeaderboardContext)
+    const { playersData, currentPlayers } = useContext(LeaderboardContext)
+
 
     return <div>
-        {isLoading && <p>Loading...</p>}
-        {!isLoading && playersData && playersData.map(player => (
+        {playersData && currentPlayers.map(player => (
             <BoardListItem
                 key={player.key}
                 tid={player.tid}

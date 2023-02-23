@@ -7,7 +7,7 @@ const LayoutWrapper = (props) => {
         <div className='relative'>
             <Navbar />
             <img className='absolute w-full -z-10' src={background} alt='background' />
-            <main className="flex flex-col justify-center my-[95px] mx-[15%]">{props.children}</main>
+            <main className="flex flex-col justify-center my-[95px] mx-[15%] max-xl:mx-[5%]">{props.children}</main>
             <Footer />
         </div>
     )
