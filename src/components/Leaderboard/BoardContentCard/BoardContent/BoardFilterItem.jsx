@@ -9,9 +9,12 @@ const BoardFilterItem = (props) => {
         console.log(sortName)
     }
     return (
-        <FilterButton onClick={buttonClickHandler} highlited={sortName === props.title}>
-            <span className="hidden xl:block"> {props.title} </span>
-            <span className="block xl:hidden"> {props.short} </span>
+        <FilterButton
+            onClick={buttonClickHandler}
+            highlited={sortName === props.title}
+            className={props.title === 'Rank' ? 'w-[70%] justify-self-start' : ''}>
+            <div className="hidden xl:inline-block"> {props.title} </div>
+            <div className="inline-block xl:hidden"> {props.short} </div>
         </FilterButton>
     )
 }

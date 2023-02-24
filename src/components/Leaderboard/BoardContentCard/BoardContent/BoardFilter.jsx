@@ -1,4 +1,5 @@
 import BoardFilterItem from "./BoardFilterItem"
+import GridRow from "../../../UI/GridRow"
 
 const titleList = [
     {
@@ -32,10 +33,10 @@ const BoardFilter = () => {
         />
     ))
 
-    return <div className="grid grid-cols-6 place-items-center my-[10px] whitespace-nowrap font-bold ">
+    return <GridRow className="font-bold">
         {titleListContent}
         <div>Name</div>
-    </div>
+    </GridRow>
 }
 
 export default BoardFilter

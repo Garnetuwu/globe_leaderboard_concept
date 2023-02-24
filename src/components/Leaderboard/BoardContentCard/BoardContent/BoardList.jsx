@@ -6,9 +6,10 @@ const BoardList = () => {
     const { playersData, currentPlayers } = useContext(LeaderboardContext)
 
     return <div>
-        {playersData && currentPlayers.map(player => (
+        {playersData && currentPlayers.map((player, index) => (
             <BoardListItem
                 key={player.key}
+                index={index}
                 tid={player.tid}
                 name={player.name}
                 volume={player.volume}

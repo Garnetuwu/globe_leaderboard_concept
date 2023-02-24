@@ -9,6 +9,9 @@ const LeaderboardContext = React.createContext({
     sortName: '',
     currentPlayers: [],
     totalPageCount: 1,
+    currentPageNumber: 1,
+    nextPage: 1,
+    prevPage: 1,
     paginate: (currentPage) => { }
 })
 
