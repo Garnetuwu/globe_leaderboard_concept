@@ -19,18 +19,30 @@ export const LeaderboardContextProvider = ({ children }) => {
     const [playersData, setPlayersData] = useState([])
     const [path, setPath] = useState('/leaderboard/current-season')
     const [sortName, setSortName] = useState('Rank')
+    const sortedPlayers = sortPlayers(playersData, sortName)
 
     //page state
     const [currentPageNumber, setCurrentPageNumber] = useState(1)
     const [rowsPerPage, setRowsPerPage] = useState(20)
 
+
     const indexOfLastPlayer = currentPageNumber * rowsPerPage
     const indexOfFirstPlayer = indexOfLastPlayer - rowsPerPage
 
-    const sortedPlayers = sortPlayers(playersData, sortName)
     const currentPlayers = sortedPlayers.slice(indexOfFirstPlayer, indexOfLastPlayer)
-
     const totalPageCount = Math.ceil(sortedPlayers.length / rowsPerPage)
+
+    let prevPage;
+    let nextPage;
+
+    if (currentPageNumber > 1) {
+        prevPage = currentPageNumber - 1
+    }
+
+    if (currentPageNumber < totalPageCount) {
+        nextPage = currentPageNumber + 1
+    }
+
 
     const paginate = (currPage) => {
         setCurrentPageNumber(currPage)
@@ -86,6 +98,8 @@ export const LeaderboardContextProvider = ({ children }) => {
         paginate,
         currentPageNumber,
         onChangeRows,
+        prevPage,
+        nextPage
     }
     return <LeaderboardContext.Provider value={leaderboardContext}>
         {children}

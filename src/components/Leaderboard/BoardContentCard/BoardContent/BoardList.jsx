@@ -1,11 +1,9 @@
 import BoardListItem from "./BoardListItem"
 import { useContext } from "react"
 import LeaderboardContext from "../../../../store/leaderboard-context"
-import sortPlayers from "../../../../utils/sortPlayers"
 
 const BoardList = () => {
     const { playersData, currentPlayers } = useContext(LeaderboardContext)
-
 
     return <div>
         {playersData && currentPlayers.map(player => (

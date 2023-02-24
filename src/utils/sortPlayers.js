@@ -1,6 +1,6 @@
 const sortPlayers = (list, sortName) => {
     return list.sort((a, b) => {
-        if (sortName === 'Rating') {
+        if (sortName === 'Trader Rating') {
             return b.rating - a.rating
         }
         if (sortName === 'Rank') {
