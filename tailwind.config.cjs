@@ -12,7 +12,8 @@ module.exports = {
         'break': '#363636',
         'primary-background': '#040D16',
         'card-background': '#161920',
-        'caption': '#93A2AE'
+        'caption': '#93A2AE',
+        'dark-black': '#03060D'
       },
       text: {
         'xs': '12px',

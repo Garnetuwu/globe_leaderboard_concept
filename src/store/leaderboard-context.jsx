@@ -24,6 +24,16 @@ export const LeaderboardContextProvider = ({ children }) => {
     const [sortName, setSortName] = useState('Rank')
     const sortedPlayers = sortPlayers(playersData, sortName)
 
+    //modal state
+    const [isModalVisible, setIsModalVisible] = useState(false)
+    const [isExpanded, setIsExpanded] = useState(false)
+    const [selectedPlayer, setSelectedPlayer] = useState({
+        tid: 1,
+        level: 1,
+        name: '',
+    })
+
+
     //page state
     const [currentPageNumber, setCurrentPageNumber] = useState(1)
     const [rowsPerPage, setRowsPerPage] = useState(20)
@@ -63,6 +73,25 @@ export const LeaderboardContextProvider = ({ children }) => {
         setSortName(inputSort)
     }
 
+    const presentModalHandler = (id) => {
+        const { tid, level, name } = sortedPlayers.find(player => player.tid === id)
+        setIsModalVisible(true)
+        setSelectedPlayer({
+            tid,
+            level,
+            name
+        })
+    }
+
+    const cancelModalHandler = () => {
+        setIsModalVisible(false)
+        setIsExpanded(false)
+    }
+
+    const modalExpandHanlder = () => {
+        setIsExpanded(prevState => !prevState)
+    }
+
     useEffect(() => {
         let playersArr = []
         const fetchData = async () => {
@@ -94,6 +123,9 @@ export const LeaderboardContextProvider = ({ children }) => {
     const leaderboardContext = {
         onChangePath: changePathHandler,
         onChangeSort: changeSortHandler,
+        onOpenModal: presentModalHandler,
+        onCancelModal: cancelModalHandler,
+        onExpandModal: modalExpandHanlder,
         playersData,
         sortName,
         currentPlayers,
@@ -102,7 +134,11 @@ export const LeaderboardContextProvider = ({ children }) => {
         currentPageNumber,
         onChangeRows,
         prevPage,
-        nextPage
+        nextPage,
+        isModalVisible,
+        isExpanded,
+        setIsExpanded,
+        selectedPlayer
     }
     return <LeaderboardContext.Provider value={leaderboardContext}>
         {children}
