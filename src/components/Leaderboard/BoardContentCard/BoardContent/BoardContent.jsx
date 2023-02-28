@@ -8,7 +8,7 @@ import LeaderboardContext from '../../../../store/leaderboard-context'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const BoardContent = () => {
-    const { onChangePath, isModalVisible } = useContext(LeaderboardContext)
+    const { onChangePath } = useContext(LeaderboardContext)
     const { pathname } = useLocation()
 
     useEffect(() => {
