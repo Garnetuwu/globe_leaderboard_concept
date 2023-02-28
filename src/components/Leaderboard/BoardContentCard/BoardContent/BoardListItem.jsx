@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import LeaderboardContext from "../../../../store/leaderboard-context"
 import GridRow from "../../../UI/GridRow"
-import playerIcon from '../../../../assets/common/player icon 2.png'
+import playerIcon from '../../../../assets/common/profile-icon.svg'
 
 
 const itemCard = 'bg-card-background flex items-center py-2 h-[2.5em]'
@@ -34,10 +34,10 @@ const BoardListItem = (props) => {
                 </div>
                 <div className={`${itemCard} w-[100%] justify-center `}>{props.rating}</div>
                 <div className={`${itemCard} rounded-r-md w-[100%] justify-between pl-5`}>
-                    <span></span>
+                    <span className="max-xl:hidden"></span>
                     <span className='my-auto'> {props.name} </span>
                     <button onClick={buttonClickHandler}>
-                        <img className="object-fit scale-75 m-0" src={playerIcon} alt='playerIcon' />
+                        <img className="object-fit mr-2" src={playerIcon} alt='playerIcon' />
                     </button>
                 </div>
             </GridRow>

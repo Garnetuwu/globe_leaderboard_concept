@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import LeaderboardContext from "../../../../store/leaderboard-context"
 import Modal from "../../../UI/Modal"
 import profilePic from '../../../../assets/playerIcon/icon1.png'
@@ -25,7 +25,7 @@ const PlayerModal = () => {
             <Modal onClick={() => onCancelModal()} className='top-[calc(50%-200px)] left-[calc(50%-165px)]'>
                 <motion.div
                     className="flex"
-                    animate={isExpanded ? { x: -300 } : { x: 0 }}
+                    animate={isExpanded ? { x: -200 } : { x: 0 }}
                     transition={{ duration: 0.2 }}
                 >
                     <div className="flex">
@@ -41,9 +41,9 @@ const PlayerModal = () => {
                         <AnimatePresence>
                             {isExpanded && <motion.div
                                 initial={{ width: 0 }}
-                                animate={{ width: '600px' }}
+                                animate={{ width: '400px' }}
                                 exit={{ width: 0 }}
-                                className='w-[600px] h-[400px] bg-dark-black'>
+                                className=' bg-dark-black'>
                                 invisible
                             </motion.div>}
                         </AnimatePresence>
