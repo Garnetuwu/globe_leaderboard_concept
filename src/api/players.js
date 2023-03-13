@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const getPlayers = async (query) => {
+export const getPlayers = async () => {
   try {
-    const res = await axios(process.env.VITE_FIREBASE_URL);
+    const res = await axios(import.meta.env.VITE_FIREBASE_URL);
     return res.data;
   } catch (err) {
     console.log(err);
